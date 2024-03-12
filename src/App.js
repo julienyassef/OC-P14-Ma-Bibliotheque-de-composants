@@ -2,20 +2,24 @@
 import React, { useState } from "react";
 
 // Import components
-import ModalEmployeeCreated from "./lib/ModalEmployeeCreated/ModalEmployeeCreated";
+import Modal from "./lib/Modal/Modal";
 
 function App() {
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () => setModalOpen(true);
-  const handleCloseModal = () => setModalOpen(false);
+  const handleOpenModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div className="App">
       <button onClick={handleOpenModal}>Create Employee</button>
-      <ModalEmployeeCreated
+      <Modal
         isOpen={isModalOpen}
-        handleClose={handleCloseModal}
+        handleClose={closeModal}
+        title="Titre de la Modal"
+        content={<p>Contenu de la modal.</p>}
+        className="custom-modal-style"
+        disableScroll={false}
       />
     </div>
   );
