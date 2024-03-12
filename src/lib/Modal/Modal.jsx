@@ -13,9 +13,10 @@ const defaultCloseIcon = (
   </svg>
 );
 
-function Modal({ isOpen, handleClose, title, content, disableScroll = true, closeIcon = defaultCloseIcon }) {
+function Modal({ isOpen, handleClose, title, content, disableScroll = true, closeIcon = defaultCloseIcon}) {
   
   const modalRef = useRef(null);
+
 
 
   // logique pour empecher de scroller lorsque la modal est ouverte
@@ -61,25 +62,20 @@ function Modal({ isOpen, handleClose, title, content, disableScroll = true, clos
   
   
   return isOpen ? (
-    <div className={`wrapperModal`} >
-      <div className="wrapperModal__modal" ref={modalRef}>
-
-        <span className="wrapperModal__modal__iconClose" onClick={handleClose}>
+      <div className="modal" ref={modalRef}>
+        <span className="modal__iconClose" onClick={handleClose}>
         {closeIcon}
         </span>
-
-        {title && <h2 className="wrapperModal__modal__title">
+        {title && <h2 className="modal__title">
           {title}
         </h2>}
-
-        <div className="wrapperModal__modal__content" >
+        <div className="modal__content" >
           {content}
           {/* Lien pour fermer la modal */}
-          <a href="#" onClick={handleClose} className="wrapperModal__modal__linkClose" >Fermer la modal</a>
+          <a href="#" onClick={handleClose} className="modal__linkClose" >Fermer la modal</a>
         </div>
-
       </div>
-    </div>
+    
   ) : null;
 }
 
