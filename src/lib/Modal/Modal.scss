@@ -22,6 +22,13 @@ $link-hover-color: darken($link-color, 15%);
     flex-direction: column;
     align-items: center;
     padding: 20px;
+
+    &.centeredModal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     
     &__iconClose {
       background-color: $secondary-color;

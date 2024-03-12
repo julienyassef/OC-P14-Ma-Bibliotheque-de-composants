@@ -21,6 +21,7 @@ function App() {
         className="custom-modal-style"
         disableScroll={false}
         showCloseLink={true}
+        centeredModal={true}
       />
     </div>
   );
