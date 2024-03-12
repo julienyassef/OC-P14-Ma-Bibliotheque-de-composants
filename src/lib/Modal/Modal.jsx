@@ -1,5 +1,5 @@
 //scss
-import './ModalEmployeeCreated.scss'
+import './Modal.scss'
 
 //React
 import React, { useEffect, useRef } from 'react';
@@ -13,7 +13,7 @@ const defaultCloseIcon = (
   </svg>
 );
 
-function Modal({ isOpen, handleClose, title, content, className, disableScroll = true, closeIcon = defaultCloseIcon }) {
+function Modal({ isOpen, handleClose, title, content, disableScroll = true, closeIcon = defaultCloseIcon }) {
   
   const modalRef = useRef(null);
 
@@ -61,13 +61,23 @@ function Modal({ isOpen, handleClose, title, content, className, disableScroll =
   
   
   return isOpen ? (
-    <div className={`modal ${className}`} >
-      <div className="modal__content" ref={modalRef}>
-        <span className="modal__content__close" onClick={handleClose}>
+    <div className={`wrapperModal`} >
+      <div className="wrapperModal__modal" ref={modalRef}>
+
+        <span className="wrapperModal__modal__iconClose" onClick={handleClose}>
         {closeIcon}
         </span>
-        {title && <h2>{title}</h2>}
-        <div>{content}</div>
+
+        {title && <h2 className="wrapperModal__modal__title">
+          {title}
+        </h2>}
+
+        <div className="wrapperModal__modal__content" >
+          {content}
+          {/* Lien pour fermer la modal */}
+          <a href="#" onClick={handleClose} className="wrapperModal__modal__linkClose" >Fermer la modal</a>
+        </div>
+
       </div>
     </div>
   ) : null;
