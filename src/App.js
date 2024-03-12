@@ -20,6 +20,7 @@ function App() {
         content={<p>Contenu de la modal.</p>}
         className="custom-modal-style"
         disableScroll={false}
+        showCloseLink={true}
       />
     </div>
   );

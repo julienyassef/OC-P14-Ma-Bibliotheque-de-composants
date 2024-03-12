@@ -13,7 +13,7 @@ const defaultCloseIcon = (
   </svg>
 );
 
-function Modal({ isOpen, handleClose, title, content, disableScroll = true, closeIcon = defaultCloseIcon}) {
+function Modal({ isOpen, handleClose, title, content, showCloseLink = true, disableScroll = true, closeIcon = defaultCloseIcon}) {
   
   const modalRef = useRef(null);
 
@@ -71,8 +71,11 @@ function Modal({ isOpen, handleClose, title, content, disableScroll = true, clos
         </h2>}
         <div className="modal__content" >
           {content}
-          {/* Lien pour fermer la modal */}
-          <a href="#" onClick={handleClose} className="modal__linkClose" >Fermer la modal</a>
+          {showCloseLink && (
+          <a href="#" onClick={handleClose} className="modal__linkClose">
+            Fermer la modal
+          </a>
+        )}
         </div>
       </div>
     
