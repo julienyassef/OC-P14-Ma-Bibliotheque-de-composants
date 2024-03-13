@@ -15,18 +15,18 @@ const defaultCloseIcon = (
 
 function Modal({ 
   isOpen, 
-  handleClose, 
   title, 
   content, 
+  handleClose, 
   showCloseLink = true, 
+  escapeClose = true,
+  enableCloseIconClick = true,
   disableScroll = true, 
   closeIcon = defaultCloseIcon,
-  escapeClose = true, 
   centeredModal = true 
 }) {
   
   const modalRef = useRef(null);
-
 
 
   // logique pour empecher de scroller lorsque la modal est ouverte
@@ -69,11 +69,17 @@ function Modal({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [handleClose]); // S'assure que le handler ne change pas
-  
+
+  // logique pour autoriser l'utilisation de close icon click
+  const handleIconClick = () => {
+    if (enableCloseIconClick) {
+      handleClose();
+    }
+  };
   
   return isOpen ? (
     <div className={`modal ${centeredModal ? 'centeredModal' : ''}`} ref={modalRef}>
-      <span className="modal__iconClose" onClick={handleClose}>
+      <span className="modal__iconClose" onClick={handleIconClick}>
       {closeIcon}
       </span>
       {title && <h2 className="modal__title">
