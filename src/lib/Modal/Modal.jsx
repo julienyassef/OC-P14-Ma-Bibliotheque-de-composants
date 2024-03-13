@@ -20,6 +20,7 @@ function Modal({
   handleClose, 
   showCloseLink = true, 
   escapeClose = true,
+  closeOnClickOutside = true,
   enableCloseIconClick = true,
   disableScroll = true, 
   closeIcon = defaultCloseIcon,
@@ -56,19 +57,17 @@ function Modal({
 
   // logique pour fermer la modale avec click exterieur modal
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
+    const handleClickOutside = (event) => {
+      if (closeOnClickOutside && modalRef.current && !modalRef.current.contains(event.target)) {
         handleClose();
       }
-    }
-    // Ajoute l'écouteur d'événements au document
+    };
+    
     document.addEventListener('mousedown', handleClickOutside);
-  
-    // Nettoie l'écouteur d'événements lors du démontage du composant
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [handleClose]); // S'assure que le handler ne change pas
+  }, [handleClose, closeOnClickOutside]); 
 
   // logique pour autoriser l'utilisation de close icon click
   const handleIconClick = () => {

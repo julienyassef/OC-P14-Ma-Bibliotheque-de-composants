@@ -18,7 +18,8 @@ function App() {
         handleClose={closeModal}
         showCloseLink={true}
         escapeClose={true}
-        enableCloseIconClick = {true}
+        enableCloseIconClick={true}
+        closeOnClickOutside={true}
         title="Titre de la Modal"
         content={<p>Contenu de la modal.</p>}
         className="custom-modal-style"
