@@ -16,11 +16,12 @@ function App() {
       <Modal
         isOpen={isModalOpen}
         handleClose={closeModal}
+        showCloseLink={true}
+        escapeClose={true}
         title="Titre de la Modal"
         content={<p>Contenu de la modal.</p>}
         className="custom-modal-style"
         disableScroll={false}
-        showCloseLink={true}
         centeredModal={true}
       />
     </div>

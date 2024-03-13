@@ -20,7 +20,8 @@ function Modal({
   content, 
   showCloseLink = true, 
   disableScroll = true, 
-  closeIcon = defaultCloseIcon, 
+  closeIcon = defaultCloseIcon,
+  escapeClose = true, 
   centeredModal = true 
 }) {
   
@@ -41,7 +42,7 @@ function Modal({
   // logique pour fermer la modale avec ESC
   useEffect(() => {
     function handleKeyDown(event) {
-      if (event.key === 'Escape') {
+      if (event.key === 'Escape' && escapeClose)  {
         handleClose();
       }
     }
@@ -51,7 +52,7 @@ function Modal({
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [handleClose]);
+  }, [handleClose, escapeClose]);
 
   // logique pour fermer la modale avec click exterieur modal
   useEffect(() => {
