@@ -17,14 +17,14 @@ function Modal({
   title, 
   content, 
   handleClose, 
-  showCloseLink = true, 
-  escapeClose = true,
-  closeOnClickOutside = true,
-  enableCloseIconClick = true,
-  disableScroll = true, 
+  showCloseLink, 
+  escapeClose,
+  closeOnClickOutside,
+  enableCloseIconClick,
+  disableScroll, 
   closeIcon,
-  closeClass = '',
-  centeredModal = true, 
+  closeClass,
+  centeredModal, 
 }) {
 
   //ref pour accéder au DOm de la modal

@@ -32,7 +32,7 @@ function App() {
         closeOnClickOutside={true}
         title="Titre de la Modal"
         content={<p>Contenu de la modal.</p>}
-        disableScroll={false}
+        disableScroll={true}
         centeredModal={true}
         closeIcon={defaultCloseIcon}
         closeClass={`custumClose`}
