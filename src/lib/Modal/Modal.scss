@@ -10,6 +10,17 @@ $link-hover-color: darken($link-color, 15%);
   overflow: hidden;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 100;
+}
+
+
 .custumClose {
   background-color: $secondary-color;
   height: 25px;
@@ -44,6 +55,7 @@ $link-hover-color: darken($link-color, 15%);
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    z-index: 101;
 
   
     &.centeredModal {
