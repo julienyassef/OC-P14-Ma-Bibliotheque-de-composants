@@ -5,22 +5,50 @@ import React, { useState } from "react";
 import Modal from "./lib/Modal/Modal";
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFirstModalOpen, setIsFirstModalOpen] = useState(false);
+  const [isSecondModalOpen, setIsSecondModalOpen] = useState(false);
 
-  const handleOpenModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const handleOpenFirstModal = () => setIsFirstModalOpen(true);
+  const handleOpenSecondModal = () => setIsSecondModalOpen(true);
+
+  const handleCloseFirstModal = () => setIsFirstModalOpen(false);
+  const handleCloseSecondModal = () => setIsSecondModalOpen(false);
 
   return (
     <div className="App">
-      <button onClick={handleOpenModal}>Create Employee</button>
+      <button onClick={handleOpenFirstModal}>Open First Modal</button>
+
       <Modal
-        isOpen={isModalOpen}
-        handleClose={closeModal}
+        isOpen={isFirstModalOpen}
+        closePreviousOnOpen={true}
+        handleClose={handleCloseFirstModal}
         escapeClose={true}
         enableCloseIconClick={true}
         closeOnClickOutside={true}
         title="Titre de la Modal"
-        content={<p>Contenu de la modal.</p>}
+        content={
+          <p>
+            Je suis la première modal.{" "}
+            <button onClick={handleOpenSecondModal}>Open Second Modal</button>
+          </p>
+        }
+        disableScroll={true}
+        centeredModal={true}
+        closeClass={`custumClose`}
+        fadeDurationOverlay={0}
+        fadeDelayOverlay={0}
+        fadeDurationModal={0}
+        fadeDelayModal={0}
+      />
+      <Modal
+        isOpen={isSecondModalOpen}
+        closePreviousOnOpen={true}
+        handleClose={handleCloseSecondModal}
+        escapeClose={true}
+        enableCloseIconClick={true}
+        closeOnClickOutside={true}
+        title="Titre de la Modal"
+        content={<p>je suis la seconde modal. </p>}
         disableScroll={true}
         centeredModal={true}
         closeClass={`custumClose`}

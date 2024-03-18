@@ -18,6 +18,7 @@ const defaultCloseIcon = (
  */
 function Modal({ 
   isOpen,
+  closePreviousOnOpen = true,
   title, 
   content, 
   handleClose, 
@@ -84,6 +85,21 @@ function Modal({
     }
   };
 
+  useEffect(() => {
+    if (isOpen && closePreviousOnOpen) {
+      const modals = document.querySelectorAll('.modal');
+      if (modals.length > 1) {
+        modals.forEach((modal) => {
+          if (modal !== modalRef.current) {
+            modal.querySelector('.custumClose').click(); // Ferme le modal précédent s'il y en a plus d'un
+          }
+        });
+      }
+    }
+  }, [isOpen, closePreviousOnOpen, modalRef]);
+  
+  
+
   return (
     <>
       <div
@@ -93,29 +109,29 @@ function Modal({
         }}  
         className={`${isOpen ? 'openOverlay' : ''} overlay`}
       ></div>
-        <div 
-          className={`${isOpen ? 'openModal' : ''} ${centeredModal ? 'centeredModal' : ''} modal`}
-          style={{
-            transitionDuration: `${fadeDurationModal/1000}s`,
-            transitionDelay: `${fadeDelayModal/1000}s`
-          }}  
-          ref={modalRef}
-        >
-          <span className={`${closeClass}`}  onClick={handleIconClick}>
-            {closeIcon}
-          </span>
-          {title && <h2 className="modal__title">
-            {title}
-          </h2>}
-          <div className="modal__content">
-            {content}
-            {closeLink && (
-              <a href="#" onClick={handleClose} className="modal__linkClose">
-                {closeLink}
-              </a>
-            )}
-          </div>
+      <div 
+        className={`${isOpen ? 'openModal' : ''} ${centeredModal ? 'centeredModal' : ''} modal`}
+        style={{
+          transitionDuration: `${fadeDurationModal/1000}s`,
+          transitionDelay: `${fadeDelayModal/1000}s`
+        }}  
+        ref={modalRef}
+      >
+        <span className={`${closeClass}`}  onClick={handleIconClick}>
+          {closeIcon}
+        </span>
+        {title && <h2 className="modal__title">
+          {title}
+        </h2>}
+        <div className="modal__content">
+          {content}
+          {closeLink && (
+            <a href="#" onClick={handleClose} className="modal__linkClose">
+              {closeLink}
+            </a>
+          )}
         </div>
+      </div>
     </>
   )
 } 
