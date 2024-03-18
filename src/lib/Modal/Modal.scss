@@ -6,6 +6,7 @@ $background-color: #f4f4f4;
 $link-color: #323817;  
 $link-hover-color: darken($link-color, 15%);  
 
+
 .no-scroll {
   overflow: hidden;
 }
@@ -18,8 +19,14 @@ $link-hover-color: darken($link-color, 15%);
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5); 
   z-index: 100;
+  opacity: 0;
+  pointer-events: none;
 }
 
+.openOverlay{
+  opacity: 1;
+  pointer-events: all;
+}
 
 .custumClose {
   background-color: $secondary-color;
@@ -44,7 +51,6 @@ $link-hover-color: darken($link-color, 15%);
   }
 }
 
-
 .modal {
     background-color: $background-color;
     width: 300px;
@@ -56,14 +62,14 @@ $link-hover-color: darken($link-color, 15%);
     align-items: center;
     padding: 20px;
     z-index: 101;
+    opacity: 0;
+    pointer-events: none;
 
-  
     &.centeredModal {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      animation: fadeInModal 1s ease-out; 
     }
     
     &__title {
@@ -88,3 +94,7 @@ $link-hover-color: darken($link-color, 15%);
       }
     }
   }
+.openModal {
+  opacity: 1;
+  pointer-events: all;
+}

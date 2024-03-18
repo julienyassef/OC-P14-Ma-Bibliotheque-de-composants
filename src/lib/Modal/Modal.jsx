@@ -2,7 +2,7 @@
 import './Modal.scss'
 
 //React
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 // Icon Cross close par défault sur la modal
 const defaultCloseIcon = (
@@ -12,19 +12,27 @@ const defaultCloseIcon = (
   </svg>
 );
 
+/**
+ * @param {boolean} isOpen handle the modal state
+ * @param {string} title title of the modal
+ */
 function Modal({ 
-  isOpen, 
+  isOpen,
   title, 
   content, 
   handleClose, 
-  showCloseLink, 
+  closeLink, 
   escapeClose,
   closeOnClickOutside,
   enableCloseIconClick,
   disableScroll, 
-  closeIcon,
-  closeClass,
-  centeredModal, 
+  closeIcon = defaultCloseIcon,
+  closeClass = 'custumClose',
+  centeredModal,
+  fadeDurationOverlay,
+  fadeDelayOverlay,
+  fadeDurationModal,
+  fadeDelayModal,
 }) {
 
   //ref pour accéder au DOm de la modal
@@ -75,14 +83,22 @@ function Modal({
       handleClose();
     }
   };
-  
 
   return (
     <>
-      {isOpen && <div className="overlay"></div>}
-      {isOpen ? (
+      <div
+        style={{
+          transitionDuration: `${fadeDurationOverlay/1000}s`,
+          transitionDelay: `${fadeDelayOverlay/1000}s`
+        }}  
+        className={`${isOpen ? 'openOverlay' : ''} overlay`}
+      ></div>
         <div 
-          className={`modal ${centeredModal ? 'centeredModal' : ''}`}
+          className={`${isOpen ? 'openModal' : ''} ${centeredModal ? 'centeredModal' : ''} modal`}
+          style={{
+            transitionDuration: `${fadeDurationModal/1000}s`,
+            transitionDelay: `${fadeDelayModal/1000}s`
+          }}  
           ref={modalRef}
         >
           <span className={`${closeClass}`}  onClick={handleIconClick}>
@@ -93,14 +109,13 @@ function Modal({
           </h2>}
           <div className="modal__content">
             {content}
-            {showCloseLink && (
+            {closeLink && (
               <a href="#" onClick={handleClose} className="modal__linkClose">
-                Fermer la modal
+                {closeLink}
               </a>
             )}
           </div>
         </div>
-      ) : null}
     </>
   )
 } 
