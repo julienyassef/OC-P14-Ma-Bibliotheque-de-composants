@@ -18,7 +18,7 @@ const defaultCloseIcon = (
  */
 function Modal({ 
   isOpen,
-  closePreviousOnOpen = true,
+  closePreviousOnOpen,
   title, 
   content, 
   handleClose, 
@@ -28,13 +28,14 @@ function Modal({
   enableCloseIconClick,
   disableScroll, 
   closeIcon = defaultCloseIcon,
-  closeClass = 'custumClose',
+  closeClass = 'customClose',
   centeredModal,
   fadeDurationOverlay,
   fadeDelayOverlay,
   fadeDurationModal,
   fadeDelayModal,
 }) {
+
 
   //ref pour accéder au DOm de la modal
   const modalRef = useRef(null);
@@ -85,20 +86,20 @@ function Modal({
     }
   };
 
+  //logique pour fermer la modal précédente
   useEffect(() => {
     if (isOpen && closePreviousOnOpen) {
       const modals = document.querySelectorAll('.modal');
       if (modals.length > 1) {
         modals.forEach((modal) => {
           if (modal !== modalRef.current) {
-            modal.querySelector('.custumClose').click(); // Ferme le modal précédent s'il y en a plus d'un
+            modal.querySelector('.customClose').click(); // Ferme le modal précédent s'il y en a plus d'un
           }
         });
       }
     }
   }, [isOpen, closePreviousOnOpen, modalRef]);
-  
-  
+
 
   return (
     <>
@@ -110,10 +111,10 @@ function Modal({
         className={`${isOpen ? 'openOverlay' : ''} overlay`}
       ></div>
       <div 
-        className={`${isOpen ? 'openModal' : ''} ${centeredModal ? 'centeredModal' : ''} modal`}
+        className={`${isOpen ? 'openModal' : ''} ${centeredModal ? 'centeredModal' : ''}  modal`}
         style={{
           transitionDuration: `${fadeDurationModal/1000}s`,
-          transitionDelay: `${fadeDelayModal/1000}s`
+          transitionDelay: `${fadeDelayModal/1000}s`,
         }}  
         ref={modalRef}
       >
@@ -133,7 +134,7 @@ function Modal({
         </div>
       </div>
     </>
-  )
-} 
-  
+  );
+}
+
 export default Modal;

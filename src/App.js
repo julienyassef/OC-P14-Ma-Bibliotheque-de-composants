@@ -25,6 +25,7 @@ function App() {
         isOpen={isFirstModalOpen}
         closePreviousOnOpen={true}
         handleClose={handleCloseFirstModal}
+        stacked={true}
         escapeClose={true}
         enableCloseIconClick={true}
         closeOnClickOutside={true}
@@ -37,7 +38,7 @@ function App() {
         }
         disableScroll={true}
         centeredModal={true}
-        closeClass={`custumClose`}
+        closeClass={`customClose`}
         fadeDurationOverlay={0}
         fadeDelayOverlay={0}
         fadeDurationModal={0}
@@ -47,23 +48,30 @@ function App() {
         isOpen={isSecondModalOpen}
         closePreviousOnOpen={true}
         handleClose={handleCloseSecondModal}
+        stacked={true}
         escapeClose={true}
         enableCloseIconClick={true}
         closeOnClickOutside={true}
         title="Titre de la Modal"
-        content={<p>Je suis la deuxième modal. <button onClick={handleOpenThirdModal}>Open Third Modal</button></p>}
+        content={
+          <p>
+            Je suis la deuxième modal.{" "}
+            <button onClick={handleOpenThirdModal}>Open Third Modal</button>
+          </p>
+        }
         disableScroll={true}
         centeredModal={true}
-        closeClass={`custumClose`}
+        closeClass={`customClose`}
         fadeDurationOverlay={0}
         fadeDelayOverlay={0}
         fadeDurationModal={0}
         fadeDelayModal={0}
       />
-       <Modal
+      <Modal
         isOpen={isThirdModalOpen}
         closePreviousOnOpen={true}
         handleClose={handleCloseThirdModal}
+        stacked={true}
         escapeClose={true}
         enableCloseIconClick={true}
         closeOnClickOutside={true}
@@ -71,7 +79,7 @@ function App() {
         content={<p>je suis la troisième et dernière modal !!! </p>}
         disableScroll={true}
         centeredModal={true}
-        closeClass={`custumClose`}
+        closeClass={`customClose`}
         fadeDurationOverlay={0}
         fadeDelayOverlay={0}
         fadeDurationModal={0}
