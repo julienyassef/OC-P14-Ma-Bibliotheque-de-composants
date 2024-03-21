@@ -14,24 +14,41 @@ const defaultCloseIcon = (
 
 /**
  * @param {boolean} isOpen handle the modal state
- * @param {string} title title of the modal
+ * @param {boolean} [closePreviousOnOpen=false] - If true, automatically closes previous modals when a new modal is opened.
+ * @param {string} title  The title of the modal. Displayed at the top of the modal content.
+ * @param {JSX.Element|string} content - The content of the modal. Can be text, JSX, or any React component.
+ * @param {string} [modalClass="modal"] - The CSS class for styling the modal. Allows for custom styling.
+ * @param {Function} handleClose - The function to call when the modal needs to be closed. This can be triggered by the close icon, pressing the escape key, or clicking outside the modal (if enabled).
+ * @param {string} [closeLink] - Optional text for a close link. If provided, displays a clickable text that closes the modal.
+ * @param {boolean} [escapeClose=false] - If true, allows the modal to be closed by pressing the escape key.
+ * @param {boolean} [closeOnClickOutside=false] - If true, allows the modal to be closed by clicking outside of its content area.
+ * @param {boolean} [enableCloseIconClick=true] - If false, clicking the close icon will not close the modal. 
+ * @param {boolean} [disableScroll=false] - If true, disables scrolling of the background content when the modal is open.
+ * @param {JSX.Element} [closeIcon=defaultCloseIcon] - Custom JSX for the close icon. Overrides the default icon.
+ * @param {string} [closeClass='customClose'] - CSS class for the close button. Allows for custom styling.
+ * @param {boolean} [centeredModal=false] - If true, centers the modal in the window.
+ * @param {number} [fadeDurationOverlay=0] - Duration of the fade effect for the overlay in milliseconds. Controls how quickly the overlay fades in or out.
+ * @param {number} [fadeDelayOverlay=0] - Delay before the fade effect for the overlay starts, in milliseconds.
+ * @param {number} [fadeDurationModal=0] - Duration of the fade effect for the modal itself in milliseconds. Controls how quickly the modal content fades in or out.
+ * @param {number} [fadeDelayModal=0] - Delay before the fade effect for the modal content starts, in milliseconds.
  */
 function Modal({ 
   isOpen,
-  closePreviousOnOpen,
+  closePreviousOnOpen ,
   title, 
   content, 
+  modalClasse = "modal",
   handleClose, 
   closeLink, 
-  escapeClose,
-  closeOnClickOutside,
-  enableCloseIconClick,
-  disableScroll, 
+  escapeClose = false,
+  closeOnClickOutside = false,
+  enableCloseIconClick = true,
+  disableScroll = false, 
   closeIcon = defaultCloseIcon,
   closeClass = 'customClose',
-  centeredModal,
-  fadeDurationOverlay,
-  fadeDelayOverlay,
+  centeredModal = false,
+  fadeDurationOverlay ,
+  fadeDelayOverlay ,
   fadeDurationModal,
   fadeDelayModal,
 }) {
@@ -111,7 +128,7 @@ function Modal({
         className={`${isOpen ? 'openOverlay' : ''} overlay`}
       ></div>
       <div 
-        className={`${isOpen ? 'openModal' : ''} ${centeredModal ? 'centeredModal' : ''}  modal`}
+        className={`${isOpen ? 'openModal' : ''} ${centeredModal ? 'centeredModal' : ''}  ${modalClasse}`}
         style={{
           transitionDuration: `${fadeDurationModal/1000}s`,
           transitionDelay: `${fadeDelayModal/1000}s`,

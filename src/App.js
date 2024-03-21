@@ -23,9 +23,9 @@ function App() {
 
       <Modal
         isOpen={isFirstModalOpen}
-        closePreviousOnOpen={true}
+        closePreviousOnOpen={false}
         handleClose={handleCloseFirstModal}
-        stacked={true}
+        modalClasse={`modal`}
         escapeClose={true}
         enableCloseIconClick={true}
         closeOnClickOutside={true}
@@ -48,7 +48,7 @@ function App() {
         isOpen={isSecondModalOpen}
         closePreviousOnOpen={true}
         handleClose={handleCloseSecondModal}
-        stacked={true}
+        modalClasse={`modal`}
         escapeClose={true}
         enableCloseIconClick={true}
         closeOnClickOutside={true}
@@ -60,7 +60,7 @@ function App() {
           </p>
         }
         disableScroll={true}
-        centeredModal={true}
+        centeredModal={false}
         closeClass={`customClose`}
         fadeDurationOverlay={0}
         fadeDelayOverlay={0}
@@ -71,7 +71,7 @@ function App() {
         isOpen={isThirdModalOpen}
         closePreviousOnOpen={true}
         handleClose={handleCloseThirdModal}
-        stacked={true}
+        modalClasse={`modal`}
         escapeClose={true}
         enableCloseIconClick={true}
         closeOnClickOutside={true}
