@@ -1,0 +1,106 @@
+/* Variables */
+:root {
+  --primary-color: #93AD19;  
+  --secondary-color: #5A6F07;  
+  --text-color: #333;  
+  --background-color: #f4f4f4;  
+  --link-color: #323817;  
+  --link-hover-color: #1F260B; /* Calculé par darken($link-color, 15%) */
+}
+
+/* Classe pour empêcher le défilement */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.openOverlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Bouton de fermeture personnalisé */
+.customClose {
+  background-color: var(--secondary-color);
+  height: 25px;
+  width: 25px;
+  border-radius: 50px;
+  position: absolute;
+  right: -15px; 
+  top: -15px; 
+  font-size: 15px;
+  cursor: pointer;
+  color: var(--background-color);
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  transition: background-color 0.3s;
+}
+
+.customClose:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+/* Modale par défaut */
+.modal {
+  background-color: var(--background-color);
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  z-index: 101;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.openModal {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.centeredModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modalTitle {
+  color: var(--secondary-color);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.modalContent {
+  color: var(--text-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.linkClose {
+  color: var(--primary-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.linkClose:hover {
+  color: var(--link-hover-color);
+}

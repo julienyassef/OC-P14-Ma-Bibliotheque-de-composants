@@ -1,5 +1,5 @@
 //scss
-import './Modal.scss'
+import './Modal.css'
 
 //React
 import React, { useEffect, useRef } from 'react';
@@ -107,11 +107,11 @@ function Modal({
   //logique pour fermer la modal précédente
   useEffect(() => {
     if (isOpen && closePreviousOnOpen) {
-      const modals = document.querySelectorAll('.modal');
+      const modals = document.querySelectorAll(`.${modalClasse}`);
       if (modals.length > 1) {
         modals.forEach((modal) => {
           if (modal !== modalRef.current) {
-            modal.querySelector('.customClose').click(); // Ferme le modal précédent s'il y en a plus d'un
+            modal.querySelector(`.${closeClass}`).click(); // Ferme le modal précédent s'il y en a plus d'un
           }
         });
       }
@@ -143,13 +143,13 @@ function Modal({
         <span className={`${closeClass}`}  onClick={handleIconClick}>
           {closeIcon}
         </span>
-        {title && <h2 className="modal__title">
+        {title && <h2 className="modalTitle">
           {title}
         </h2>}
-        <div className="modal__content">
+        <div className="modalContent">
           {content}
           {closeLink && (
-            <a href="#" onClick={handleClose} className="modal__linkClose">
+            <a href="#" onClick={handleClose} className="linkClose">
               {closeLink}
             </a>
           )}
