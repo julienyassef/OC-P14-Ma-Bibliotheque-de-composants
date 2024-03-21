@@ -18,6 +18,9 @@ const defaultCloseIcon = (
  * @param {string} title  The title of the modal. Displayed at the top of the modal content.
  * @param {JSX.Element|string} content - The content of the modal. Can be text, JSX, or any React component.
  * @param {string} [modalClass="modal"] - The CSS class for styling the modal. Allows for custom styling.
+ * @param {string} [titleClass="modalTitle"] - The CSS class for styling the modal title.
+ * @param {string} [contentClass="modalContent"] - The CSS class for styling the modal content.
+ * @param {string} [linkCloseClass="linkClose"] - The CSS class for styling the close link.
  * @param {Function} handleClose - The function to call when the modal needs to be closed. This can be triggered by the close icon, pressing the escape key, or clicking outside the modal (if enabled).
  * @param {string} [closeLink] - Optional text for a close link. If provided, displays a clickable text that closes the modal.
  * @param {boolean} [escapeClose=false] - If true, allows the modal to be closed by pressing the escape key.
@@ -37,10 +40,13 @@ function Modal({
   isOpen,
   closePreviousOnOpen ,
   title, 
+  titleClass ='modalTitle',
   content, 
+  contentClass ='modalContent',
   modalClasse = "modal",
   handleClose, 
   closeLink, 
+  linkCloseClass= "linkClose",
   escapeClose = false,
   closeOnClickOutside = false,
   enableCloseIconClick = true,
@@ -143,13 +149,13 @@ function Modal({
         <span className={`${closeClass}`}  onClick={handleIconClick}>
           {closeIcon}
         </span>
-        {title && <h2 className="modalTitle">
+        {title && <h2 className={`${titleClass}`}>
           {title}
         </h2>}
-        <div className="modalContent">
+        <div className={`${contentClass}`}>
           {content}
           {closeLink && (
-            <a href="#" onClick={handleClose} className="linkClose">
+            <a href="#" onClick={handleClose} className={`${linkCloseClass}`}>
               {closeLink}
             </a>
           )}
