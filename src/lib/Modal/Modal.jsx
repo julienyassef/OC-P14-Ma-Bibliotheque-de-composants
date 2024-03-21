@@ -32,6 +32,7 @@ const defaultCloseIcon = (
  * @param {number} [fadeDurationModal=0] - Duration of the fade effect for the modal itself in milliseconds. Controls how quickly the modal content fades in or out.
  * @param {number} [fadeDelayModal=0] - Delay before the fade effect for the modal content starts, in milliseconds.
  */
+
 function Modal({ 
   isOpen,
   closePreviousOnOpen ,
