@@ -1,11 +1,11 @@
 /* Variables */
 :root {
-  --primary-color: #93AD19;  
-  --secondary-color: #5A6F07;  
-  --text-color: #333;  
-  --background-color: #f4f4f4;  
-  --link-color: #323817;  
-  --link-hover-color: #1F260B; /* Calculé par darken($link-color, 15%) */
+  --primary-color: #2515b5;  
+  --secondary-color: #7267d3;  
+  --text-color: #000000;  
+  --background-color: #fffcfc;  
+  --link-color: #2f6b1f;  
+  --link-hover-color: #40530d; /* Calculé par darken($link-color, 15%) */
 }
 
 /* Classe pour empêcher le défilement */
