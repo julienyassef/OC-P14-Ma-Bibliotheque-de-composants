@@ -131,8 +131,10 @@ function Modal({
       <div 
         className={`${isOpen ? 'openModal' : ''} ${centeredModal ? 'centeredModal' : ''}  ${modalClasse}`}
         style={{
-          transitionDuration: `${fadeDurationModal/1000}s`,
-          transitionDelay: `${fadeDelayModal/1000}s`,
+          ...(isOpen && {
+            transitionDuration: `${fadeDurationModal/1000}s`,
+            transitionDelay: `${fadeDelayModal/1000}s`,
+          })
         }}  
         ref={modalRef}
       >

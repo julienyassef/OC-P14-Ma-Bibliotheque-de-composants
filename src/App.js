@@ -41,8 +41,8 @@ function App() {
         closeClass={`customClose`}
         fadeDurationOverlay={0}
         fadeDelayOverlay={0}
-        fadeDurationModal={0}
-        fadeDelayModal={0}
+        fadeDurationModal={500}
+        fadeDelayModal={500}
       />
       <Modal
         isOpen={isSecondModalOpen}
