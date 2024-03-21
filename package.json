@@ -14,7 +14,8 @@
   },
   "main": "src/index.js",
   "files": [
-    "src"
+    "src/lib/Modal/Modal.jsx",
+    "src/lib/Modal/Modal.scss"
   ],
   "scripts": {
     "start": "react-scripts start",
