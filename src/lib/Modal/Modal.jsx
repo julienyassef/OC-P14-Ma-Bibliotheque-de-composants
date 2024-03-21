@@ -123,8 +123,10 @@ function Modal({
     <>
       <div
         style={{
+          ...(isOpen && {
           transitionDuration: `${fadeDurationOverlay/1000}s`,
           transitionDelay: `${fadeDelayOverlay/1000}s`
+          })
         }}  
         className={`${isOpen ? 'openOverlay' : ''} overlay`}
       ></div>
