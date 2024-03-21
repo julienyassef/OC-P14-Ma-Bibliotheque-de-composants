@@ -2,21 +2,25 @@
   "name": "OC-P14-Ma-Bibliotheque-de-composants",
   "version": "0.1.0",
   "private": false,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "sass": "^1.71.1",
-    "web-vitals": "^2.1.4"
-  },
+  "description": "Une bibliothèque de composants React modulable et réutilisable pour projet OpenClassRoom, incluant un composant Modal personnalisable.",
+  "author": "Julien YASSEF",
   "main": "src/index.js",
   "files": [
     "src/lib/Modal/Modal.jsx",
     "src/lib/Modal/Modal.scss"
   ],
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.71.1",
+    "web-vitals": "^2.1.4"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
