@@ -4,6 +4,7 @@
   "private": false,
   "description": "Une bibliothèque de composants React modulable et réutilisable pour projet OpenClassRoom, incluant un composant Modal personnalisable.",
   "author": "Julien YASSEF",
+  "keywords": ["modal","composant","React"],
   "main": "Modal/Modal.jsx",
   "files": [
     "Modal/Modal.jsx",
