@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Modal Component for React Applications : jy-oc-p14-ma-bibliotheque-de-composants
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This Modal component is designed for React applications, offering a flexible and easy-to-use solution for displaying modals. With customizable content, styles, and behaviors, this modal component can adapt to a wide variety of use cases.
 
-In the project directory, you can run:
+## Author
 
-### `npm start`
+Julien YASSEF
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Dynamic Visibility:** Control the display of the modal with an `isOpen` prop.
+- **Customizable Styling:** Override default styles for the modal, title, content, and close icon through CSS classes.
+- **Close Mechanisms:** Supports closing the modal through a close icon, pressing the `ESC` key, clicking outside the modal, or a custom close text link.
+- **Accessibility Features:** Implements focus management and supports disabling background content scrolling when the modal is open.
+- **Animation Controls:** Customize fade-in and fade-out animations for both the overlay and the modal content with duration and delay options.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To incorporate `jy-oc-p14-ma-bibliotheque-de-composants` into your project, run the following npm command:
 
-### `npm run build`
+bash
+npm install jy-oc-p14-ma-bibliotheque-de-composants
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Include the Modal.css file in your project to get started with the default styling. You can import it in your main application file like so:
+import 'jy-oc-p14-ma-bibliotheque-de-composants/src/libModal.css';
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Props of the modal
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Prop                  | Type                | Description                                                                   | Default            |
+|-----------------------|---------------------|-------------------------------------------------------------------------------|--------------------|
+| `isOpen`              | `boolean`           | Controls the visibility of the modal.                                         | Required           |
+| `title`               | `string`            | The title displayed at the top of the modal.                                  | None               |
+| `content`             | `JSX.Element`/`string`| The content of the modal, can be text, JSX, or any React component.           | Required           |
+| `handleClose`         | `Function`          | Function to call when the modal needs to be closed.                           | Required           |
+| `modalClass`          | `string`            | CSS class for the modal.                                                      | `"modal"`          |
+| `titleClass`          | `string`            | CSS class for the modal title.                                                | `"modalTitle"`     |
+| `contentClass`        | `string`            | CSS class for the modal content.                                              | `"modalContent"`   |
+| `closeIcon`           | `JSX.Element`       | Custom JSX for the close icon.                                                | Default SVG icon   |
+| `enableCloseIconClick`| `boolean`           | If false, clicking the close icon will not close the modal.                   | `true`             |
+| `escapeClose`         | `boolean`           | Allows the modal to be closed by pressing the escape key.                     | `false`            |
+| `closeOnClickOutside` | `boolean`           | Allows the modal to be closed by clicking outside its content area.           | `false`            |
+| `disableScroll`       | `boolean`           | Disables scrolling of the background content when the modal is open.          | `false`            |
+| `centeredModal`       | `boolean`           | Centers the modal in the window.                                              | `false`            |
+| `fadeDurationOverlay` | `number`            | Fade effect duration for the overlay in milliseconds.                         | `0`                |
+| `fadeDelayOverlay`    | `number`            | Delay before the fade effect for the overlay starts, in milliseconds.         | `0`                |
+| `fadeDurationModal`   | `number`            | Fade effect duration for the modal itself in milliseconds.                    | `0`                |
+| `fadeDelayModal`      | `number`            | Delay before the fade effect for the modal content starts, in milliseconds.   | `0`                |
+| `closePreviousOnOpen` | `boolean`           | Automatically closes previous modals when a new modal is opened.               | `false`            |
+| `closeLink`           | `string`            | Optional text for a close link.                                               | None               |
+| `linkCloseClass`      | `string`            | CSS class for the close link.                                                 | `"linkClose"`      |
+| `closeClass`          | `string`            | CSS class for the close button.                                               | `'customClose'`    |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
