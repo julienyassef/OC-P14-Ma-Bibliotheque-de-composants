@@ -20,6 +20,11 @@ Julien YASSEF
 - **Accessibility Features:** Implements focus management and supports disabling background content scrolling when the modal is open.
 - **Animation Controls:** Customize fade-in and fade-out animations for both the overlay and the modal content with duration and delay options.
 
+## Prerequies
+
+Node version LTS
+IDE VSCODE
+
 ## Installation
 
 To incorporate `jy-oc-p14-ma-bibliotheque-de-composants` into your project, run the following npm command:

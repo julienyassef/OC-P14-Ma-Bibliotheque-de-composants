@@ -1,6 +1,6 @@
 {
   "name": "jy-oc-p14-ma-bibliotheque-de-composants",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": false,
   "description": "Une bibliothèque de composants React modulable et réutilisable pour projet OpenClassRoom, incluant un composant Modal personnalisable.",
   "author": "Julien YASSEF",
