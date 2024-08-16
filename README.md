@@ -8,6 +8,10 @@ This Modal component is designed for React applications, offering a flexible and
 
 Julien YASSEF
 
+## Link to NPM
+
+[Modal Package](https://www.npmjs.com/package/jy-oc-p14-ma-bibliotheque-de-composants)
+
 ## Features
 
 - **Dynamic Visibility:** Control the display of the modal with an `isOpen` prop.
